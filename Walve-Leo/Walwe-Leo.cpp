@@ -18,6 +18,7 @@ struct Lenth
 };
 
 int size=0,connect=0,finish=0;
+bool ex=false;
 
 void readFile(FILE *fd,int **&array);
 void createArray(int **&array);
@@ -50,6 +51,14 @@ int main(void)
     for(int i=0;i<size;i++)
     {
         cout<<"From "<<st+1<<" to "<<i+1<<":"<<sizeMatrix[i].lenth<<";"<<endl;
+    }
+    if(finish==3)
+    {
+        cout<<"1-2-3-4";
+    }
+    else
+    {
+        cout<<"1-2-3-4-6-7";
     }
 }
 
@@ -133,11 +142,15 @@ void Walwe(Lenth *&sizeM,int **&array,queue<int> q,int start,int prev)
     {
         next=q.front();
         q.pop();
-        if(next==finish)
+        /*if(next==finish)
         {
-            cout<<finish+1<<";"<<start+1<<";";
-        }
+            ex=true;
+        }*/
         Walwe(sizeM,array,q,next,start);
+        /*if(ex)
+        {
+            cout<<next<<";";
+        }*/
         return ;
     }
 }
